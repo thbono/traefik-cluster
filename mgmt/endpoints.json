@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "ubuntu1 - manager",
+    "URL": "tcp://192.168.33.10:2375"
+  },
+  {
+    "Name": "ubuntu2 - worker",
+    "URL": "tcp://192.168.33.20:2375"
+  },
+  {
+    "Name": "ubuntu3 - worker",
+    "URL": "tcp://192.168.33.30:2375"
+  }
+]

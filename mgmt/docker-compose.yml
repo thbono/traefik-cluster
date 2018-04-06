@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  portainer:
+    image: portainer/portainer:1.16.5
+    command: --external-endpoints /endpoints.json --admin-password '$$2y$$05$$TeE.4brjuUT0vxhWcj9OCuAt7dyTA2DNR3NQaJKND41lEiq2GVMIK'
+    ports:
+      - 9000:9000
+    volumes:
+      - portainer-data:/data
+      - /home/vagrant/docker/mgmt/endpoints.json:/endpoints.json
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+volumes:
+  portainer-data:
+    driver: local

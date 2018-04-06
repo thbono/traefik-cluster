@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  traefik:
+    image: traefik:v1.5.4-alpine
+    command: --docker --docker.swarmmode --docker.domain=localhost --docker.watch --web
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role == manager]

@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  old:
+    image: emilevauge/whoami
+    networks:
+      - proxy
+    deploy:
+      labels:
+        - "traefik.port=80"
+        - "traefik.frontend.rule=PathPrefixStrip:/old"
+        - "traefik.backend.loadbalancer.sticky=true"
+
+networks:
+  proxy:
+    external:
+      name: proxy_default  
